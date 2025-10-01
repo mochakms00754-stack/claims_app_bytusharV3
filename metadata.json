@@ -1,0 +1,5 @@
+{
+  "name": "Claims Analysis Dashboard",
+  "description": "An interactive web application to upload, process, and visualize insurance claim data from CSV or Excel files. It generates pivot tables, charts, and downloadable reports, replicating a complex Python data analysis pipeline.",
+  "requestFramePermissions": []
+}

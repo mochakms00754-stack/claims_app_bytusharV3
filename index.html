@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claims Analysis Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root, [data-theme="light"] {
+            --color-background: 248 250 252; /* slate-50 */
+            --color-foreground: 15 23 42;    /* slate-900 */
+            --color-card-background: 255 255 255; /* white */
+            --color-card-foreground: 15 23 42;    /* slate-900 */
+            --color-muted-background: 241 245 249; /* slate-100 */
+            --color-muted-foreground: 71 85 105;   /* slate-600 */
+            --color-border: 226 232 240;      /* slate-200 */
+            --color-primary: 63 66 182;       /* indigo-700 */
+            --color-secondary: 79 70 229;     /* indigo-600 */
+        }
+        [data-theme="dark"] {
+            --color-background: 15 23 42;      /* slate-900 */
+            --color-foreground: 241 245 249;   /* slate-100 */
+            --color-card-background: 30 41 59;     /* slate-800 */
+            --color-card-foreground: 241 245 249;   /* slate-100 */
+            --color-muted-background: 51 65 85;      /* slate-700 */
+            --color-muted-foreground: 148 163 184;  /* slate-400 */
+            --color-border: 51 65 85;         /* slate-700 */
+            --color-primary: 99 102 241;       /* indigo-400 */
+            --color-secondary: 129 140 248;    /* indigo-300 */
+        }
+        [data-theme="retro"] {
+            --color-background: 245 245 244;   /* stone-100 */
+            --color-foreground: 68 64 60;      /* stone-700 */
+            --color-card-background: 250 250 249;  /* stone-50 */
+            --color-card-foreground: 68 64 60;      /* stone-700 */
+            --color-muted-background: 231 229 228;   /* stone-200 */
+            --color-muted-foreground: 120 113 108;  /* stone-500 */
+            --color-border: 214 211 209;       /* stone-300 */
+            --color-primary: 120 53 15;        /* orange-900 */
+            --color-secondary: 146 64 14;      /* orange-800 */
+        }
+
+        .bg-primary { background-color: rgb(var(--color-primary)); }
+        .bg-secondary { background-color: rgb(var(--color-secondary)); }
+        .text-primary { color: rgb(var(--color-primary)); }
+        .border-primary { border-color: rgb(var(--color-primary)); }
+        .ring-primary { --tw-ring-color: rgb(var(--color-primary)); }
+        
+        .bg-background { background-color: rgb(var(--color-background)); }
+        .text-foreground { color: rgb(var(--color-foreground)); }
+        .bg-card { background-color: rgb(var(--color-card-background)); }
+        .text-card-foreground { color: rgb(var(--color-card-foreground)); }
+        .bg-muted { background-color: rgb(var(--color-muted-background)); }
+        .text-muted-foreground { color: rgb(var(--color-muted-foreground)); }
+        .border-border { border-color: rgb(var(--color-border)); }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        .animate-slide-in-up { animation: slideInUp 0.5s ease-out forwards; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'rgb(var(--color-primary))',
+                        secondary: 'rgb(var(--color-secondary))',
+                        background: 'rgb(var(--color-background))',
+                        foreground: 'rgb(var(--color-foreground))',
+                        card: {
+                            DEFAULT: 'rgb(var(--color-card-background))',
+                            foreground: 'rgb(var(--color-card-foreground))',
+                        },
+                        muted: {
+                            DEFAULT: 'rgb(var(--color-muted-background))',
+                            foreground: 'rgb(var(--color-muted-foreground))',
+                        },
+                        border: 'rgb(var(--color-border))',
+                    },
+                },
+            },
+        };
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.1",
+    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5",
+    "papaparse": "https://aistudiocdn.com/papaparse@^5.5.3",
+    "jszip": "https://aistudiocdn.com/jszip@^3.10.1",
+    "file-saver": "https://aistudiocdn.com/file-saver@^2.0.5",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.1.1",
+    "date-fns/": "https://aistudiocdn.com/date-fns@^4.1.0/",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.0.3",
+    "vite": "https://aistudiocdn.com/vite@^7.1.7"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-background text-foreground">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
