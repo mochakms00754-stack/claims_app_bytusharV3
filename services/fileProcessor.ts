@@ -71,10 +71,10 @@ export const processClaimsFile = (rawData: ClaimRecord[]): ProcessedData => {
             newRow['Aging Days Bucketing'] = 'Uncategorized';
         } else if (tat <= 7) {
             newRow['Aging Days Bucketing'] = '0-7 Days';
-        } else if (tat <= 15) {
-            newRow['Aging Days Bucketing'] = '8-15 Days';
+        } else if (tat <= 14) {
+            newRow['Aging Days Bucketing'] = '8-14 Days';
         } else if (tat <= 30) {
-            newRow['Aging Days Bucketing'] = '16-30 Days';
+            newRow['Aging Days Bucketing'] = '15-30 Days';
         } else {
             newRow['Aging Days Bucketing'] = 'Above 30 Days';
         }
@@ -82,18 +82,14 @@ export const processClaimsFile = (rawData: ClaimRecord[]): ProcessedData => {
         // TAT Group
         if (isNaN(tat)) {
             newRow['TAT Group'] = 'Uncategorized';
-        } else if (tat <= 10) {
-            newRow['TAT Group'] = '0-10';
-        } else if (tat <= 20) {
-            newRow['TAT Group'] = '11-20';
+        } else if (tat <= 7) {
+            newRow['TAT Group'] = '0-7';
+        } else if (tat <= 14) {
+            newRow['TAT Group'] = '8-14';
         } else if (tat <= 30) {
-            newRow['TAT Group'] = '21-30';
-        } else if (tat <= 50) {
-            newRow['TAT Group'] = '31-50';
-        } else if (tat <= 100) {
-            newRow['TAT Group'] = '51-100';
+            newRow['TAT Group'] = '15-30';
         } else {
-            newRow['TAT Group'] = '100+';
+            newRow['TAT Group'] = '30+';
         }
         
         return newRow;
